@@ -3,6 +3,7 @@ package com.example.a123.pandatv.ui.module.pandalive;
 
 import android.view.View;
 
+import com.example.a123.pandatv.R;
 import com.example.a123.pandatv.base.BaseFragment;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
 
@@ -10,7 +11,7 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
     private PandaLiveContract.Presenter presenter;
     @Override
     protected int getLayoutId() {
-        return 0;
+        return R.layout.pandalive;
     }
 
     @Override
@@ -30,6 +31,7 @@ public class PandaLiveFragment extends BaseFragment implements PandaLiveContract
 
     @Override
     public void showProgress() {
+
 
     }
 

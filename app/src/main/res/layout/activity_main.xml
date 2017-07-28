@@ -10,7 +10,7 @@
     <LinearLayout
         android:id="@+id/main_linearLayout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="@dimen/y80"
         android:background="@color/colorPrimaryDark"
         android:paddingLeft="@dimen/x20"
         >
@@ -60,7 +60,6 @@
         android:id="@+id/main_fragment"
         android:layout_weight="1"
         android:layout_width="match_parent"
-        android:background="@drawable/_no_net"
         android:layout_height="match_parent">
 
     </FrameLayout>

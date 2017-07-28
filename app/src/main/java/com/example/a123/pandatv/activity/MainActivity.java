@@ -59,8 +59,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     protected void setIntent() {
-
-        //showHome();
+        showHome();
     }
 
     @Override
