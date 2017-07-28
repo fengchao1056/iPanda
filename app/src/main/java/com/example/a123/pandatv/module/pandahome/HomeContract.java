@@ -8,7 +8,7 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
  * Created by xingge on 2017/7/26.
  */
 
-public class HomeContract {
+public interface HomeContract {
 
     interface View extends BaseView<Presenter> {
         void showHomeListData(PandaHomeBean pandaHome);

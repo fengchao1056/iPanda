@@ -23,12 +23,23 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(getLayoutId(), null);
         unbinder= ButterKnife.bind(this,view);
+
         return view;
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        initView(view);
+        setListener();
+        loadDate();
+      /*  ShowDialogUtils showutils = ShowDialogUtils.getInsenter().updateConnectedFlags(getContext());
+        Boolean netConnected = showutils.isNetConnected();
+        if(!netConnected) {
+            ToastManager.show("似乎没有网络了");
+        }*/
+
+
     }
 
     protected abstract int getLayoutId();

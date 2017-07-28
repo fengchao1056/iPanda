@@ -7,8 +7,11 @@ import com.example.a123.pandatv.R;
 import com.example.a123.pandatv.base.BaseFragment;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
 
+import java.util.ArrayList;
+
 public class HomeFragment extends BaseFragment implements HomeContract.View {
     private HomeContract.Presenter presenter;
+    private ArrayList<Object> arrayList=new ArrayList<>();
     @Override
     protected int getLayoutId() {
         return R.layout.pandahome;
@@ -51,6 +54,8 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void showHomeListData(PandaHomeBean pandaHome) {
+        PandaHomeBean.DataBean.AreaBean area = pandaHome.getData().getArea();
+        arrayList.add(area);
 
     }
 

@@ -20,6 +20,7 @@ import com.example.a123.pandatv.module.pandalivechina.ChinaLivePresenter;
 import com.example.a123.pandatv.module.pandaroll.PandaRollFragment;
 import com.example.a123.pandatv.module.pandaroll.PandaRollPresenter;
 import com.example.a123.pandatv.widget.manager.MainFragmentBuild;
+import com.example.a123.pandatv.widget.manager.MentBuilder;
 import com.example.a123.pandatv.widget.manager.ToastManager;
 
 public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedChangeListener, View.OnClickListener {
@@ -76,7 +77,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
             case R.id.main_pandaObserver:
                 showPandaObserver();
-
                 break;
             case R.id.mian_chinaLive:
                 showChinaLive();
@@ -85,22 +85,27 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     public void showHome(){
         isShowTitle(true,"");
-        HomeFragment homFragment = (HomeFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, HomeFragment.class).builder().getFragmentContext();
-        new HomePresenter(homFragment);
+        MentBuilder.changeFragment(HomeFragment.class,R.id.main_fragment,false,null,true);
+        //HomeFragment homFragment = (HomeFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, HomeFragment.class).builder().getFragmentContext();
+        HomeFragment homeFragment=new HomeFragment();
+        new HomePresenter(homeFragment);
     }
     public void showPandaLive(){
         isShowTitle(false,"熊猫直播");
-        PandaLiveFragment pandaLiveFragment= (PandaLiveFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID,PandaLiveFragment.class).builder().getFragmentContext();
+        MentBuilder.changeFragment(PandaLiveFragment.class,R.id.main_fragment,false,null,true);
+        PandaLiveFragment pandaLiveFragment=new PandaLiveFragment();
         new PandaLivePresenter(pandaLiveFragment);
     }
     public void showGGVideo(){
         isShowTitle(false,"滚滚视频");
-        PandaRollFragment ggVideoFragment= (PandaRollFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID,PandaRollFragment.class).builder().getFragmentContext();
+        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,false,null,true);
+        PandaRollFragment ggVideoFragment=new PandaRollFragment();
         new PandaRollPresenter(ggVideoFragment);
     }
     public void showPandaObserver(){
         isShowTitle(false,"熊猫播报");
-        BoadCastFragment pandaObserverFragment= (BoadCastFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID,BoadCastFragment.class).builder().getFragmentContext();
+        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,false,null,true);
+        BoadCastFragment pandaObserverFragment=new BoadCastFragment();
         new BoadCastPresenter(pandaObserverFragment);
     }
     public void showChinaLive() {
@@ -154,13 +159,5 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         }
 
     }
-/*    @Override
-    public void onBackPressed() {
-        if(System.currentTimeMillis() - lastTime < 2000){
-            finish();
-        }else {
-            ToastManager.show("再按一次退出应用");
-            lastTime = System.currentTimeMillis();
-        }
-    }*/
+
 }

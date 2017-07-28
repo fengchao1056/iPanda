@@ -8,7 +8,7 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
  * Created by xingge on 2017/7/26.
  */
 
-public class BoadCastContract {
+public interface BoadCastContract {
 
     interface View extends BaseView<Presenter> {
         void showResult(PandaHomeBean pandaHome);
