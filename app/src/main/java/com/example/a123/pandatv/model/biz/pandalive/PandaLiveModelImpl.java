@@ -1,0 +1,16 @@
+package com.example.a123.pandatv.model.biz.pandalive;
+
+
+import com.example.a123.pandatv.model.entity.PandaHomeBean;
+import com.example.a123.pandatv.net.callback.MyCallback;
+
+public class PandaLiveModelImpl implements Pandalivemodel {
+
+
+    @Override
+    public void getResult(MyCallback<PandaHomeBean> callback) {
+        iHttp.get("",null,callback);
+    }
+
+
+}

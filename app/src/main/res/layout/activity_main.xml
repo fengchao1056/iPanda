@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.example.a123.pandatv.activity.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/main_linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:paddingLeft="@dimen/x20"
+        >
+        <ImageView
+            android:layout_gravity="top"
+            android:id="@+id/main_image"
+            android:layout_marginTop="@dimen/y8"
+            android:src="@drawable/panda_sign"
+            android:layout_width="@dimen/x205"
+            android:layout_height="@dimen/y80" />
+
+        <TextView
+            android:id="@+id/main_titlebar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="熊猫直播"
+            android:textColor="#ffffff"
+            android:textSize="18sp" />
+
+        <ImageView
+
+            android:id="@+id/main_imagehudong"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="@dimen/x20"
+            android:src="@drawable/hudong_sign" />
+
+
+        <ImageView
+            android:id="@+id/main_imagepersonal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="@dimen/x20"
+            android:src="@drawable/person_sign" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:background="#ffffff"
+        android:layout_height="@dimen/y10" />
+
+    <FrameLayout
+        android:id="@+id/main_fragment"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:background="@drawable/_no_net"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
+    <RadioGroup
+        android:id="@+id/main_radiogroup"
+        android:layout_width="match_parent"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/main_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawableTop="@drawable/tab_home_normal"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="首页"
+            android:drawablePadding="3dp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/main_pandaLive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/tab_panda_live_pressed"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="熊猫直播"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/main_ggVideo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_panda_culture_presseds"
+            android:gravity="center"
+            android:textSize="10sp"
+            android:text="滚滚视频"
+            android:drawablePadding="3dp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/main_pandaObserver"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_panda_eye_pressed"
+            android:gravity="center"
+            android:drawablePadding="3dp"
+            android:textSize="10sp"
+            android:text="熊猫播报"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/mian_chinaLive"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/tab_live_china_normal"
+            android:gravity="center"
+            android:drawablePadding="3dp"
+            android:textSize="10sp"
+            android:text="直播中国"
+            android:textStyle="bold" />
+    </RadioGroup>
+</LinearLayout>
