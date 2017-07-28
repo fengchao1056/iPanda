@@ -137,7 +137,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     @Override
     public void onBackPressed() {
-//        super.onBackPressed();
         FragmentManager manager = getSupportFragmentManager();
         FragmentManager.BackStackEntry entry = manager.getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1);
         String simpleName = entry.getName();
