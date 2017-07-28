@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandahome;
+package com.example.a123.pandatv.module.pandalive;
 
 import com.example.a123.pandatv.base.BasePresenter;
 import com.example.a123.pandatv.base.BaseView;
@@ -8,12 +8,12 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
  * Created by xingge on 2017/7/26.
  */
 
-public class HomeContract {
+public class PandaLiveContract {
 
     interface View extends BaseView<Presenter> {
-        void showHomeListData(PandaHomeBean pandaHome);
+        void showResult(PandaHomeBean pandaHome);
         void playVideo();
-        void loadWebView();
+        void showErrorMassage(String msg);
     }
 
     interface Presenter extends BasePresenter{

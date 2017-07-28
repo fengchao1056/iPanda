@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandalivechina;
+package com.example.a123.pandatv.module.pandaroll;
 
 
 import android.view.View;
@@ -6,8 +6,8 @@ import android.view.View;
 import com.example.a123.pandatv.base.BaseFragment;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
 
-public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract.View {
-    private ChinaLiveContract.Presenter presenter;
+public class PandaRollFragment extends BaseFragment implements PandaRollContract.View {
+    private PandaRollContract.Presenter presenter;
     @Override
     protected int getLayoutId() {
         return 0;
@@ -28,7 +28,6 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
 
     }
 
-
     @Override
     public void showProgress() {
 
@@ -45,8 +44,8 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
     }
 
     @Override
-    public void setPresenter(ChinaLiveContract.Presenter presenter) {
-
+    public void setPresenter(PandaRollContract.Presenter presenter) {
+        this.presenter=presenter;
     }
 
     @Override

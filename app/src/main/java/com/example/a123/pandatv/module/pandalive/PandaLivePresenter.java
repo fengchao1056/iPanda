@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandalive;
+package com.example.a123.pandatv.module.pandalive;
 
 
 import com.example.a123.pandatv.model.biz.pandalive.PandaLiveModelImpl;

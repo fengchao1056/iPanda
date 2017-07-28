@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandahome;
+package com.example.a123.pandatv.module.pandahome;
 
 
 import android.view.View;

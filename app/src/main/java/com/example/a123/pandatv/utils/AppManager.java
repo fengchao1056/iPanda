@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.utils.cash;
+package com.example.a123.pandatv.utils;
 
 import android.app.Activity;
 import android.content.Context;

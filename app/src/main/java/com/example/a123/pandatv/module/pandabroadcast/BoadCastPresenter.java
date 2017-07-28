@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandabroadcast;
+package com.example.a123.pandatv.module.pandabroadcast;
 
 
 import com.example.a123.pandatv.model.biz.pandabroadcast.BoadCastmodel;

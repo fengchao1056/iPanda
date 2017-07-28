@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandaroll;
+package com.example.a123.pandatv.module.pandaroll;
 
 
 import com.example.a123.pandatv.model.biz.pandaroll.PandaRollModelImpl;

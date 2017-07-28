@@ -1,4 +1,4 @@
-package com.example.a123.pandatv.ui.module.pandabroadcast;
+package com.example.a123.pandatv.module.pandaroll;
 
 import com.example.a123.pandatv.base.BasePresenter;
 import com.example.a123.pandatv.base.BaseView;
@@ -8,11 +8,14 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
  * Created by xingge on 2017/7/26.
  */
 
-public class BoadCastContract {
+public class PandaRollContract {
+
+
 
     interface View extends BaseView<Presenter> {
         void showResult(PandaHomeBean pandaHome);
         void playVideo();
+        void showErrorMassage(String msg);
     }
 
     interface Presenter extends BasePresenter{
