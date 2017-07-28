@@ -9,7 +9,6 @@ import com.example.a123.pandatv.base.BaseFragment;
 /**
  * Created by Administrator on 2017/7/12.
  */
-
 public class MainFragmentBuild {
     private static MainFragmentBuild fragmentBuild;
     private FragmentManager manager;
