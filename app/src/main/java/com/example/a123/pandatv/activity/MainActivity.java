@@ -10,16 +10,10 @@ import com.example.a123.pandatv.R;
 import com.example.a123.pandatv.app.App;
 import com.example.a123.pandatv.base.BaseActivity;
 import com.example.a123.pandatv.module.pandabroadcast.BoadCastFragment;
-import com.example.a123.pandatv.module.pandabroadcast.BoadCastPresenter;
 import com.example.a123.pandatv.module.pandahome.HomeFragment;
-import com.example.a123.pandatv.module.pandahome.HomePresenter;
 import com.example.a123.pandatv.module.pandalive.PandaLiveFragment;
-import com.example.a123.pandatv.module.pandalive.PandaLivePresenter;
 import com.example.a123.pandatv.module.pandalivechina.ChinaLiveFragment;
-import com.example.a123.pandatv.module.pandalivechina.ChinaLivePresenter;
 import com.example.a123.pandatv.module.pandaroll.PandaRollFragment;
-import com.example.a123.pandatv.module.pandaroll.PandaRollPresenter;
-import com.example.a123.pandatv.widget.manager.MainFragmentBuild;
 import com.example.a123.pandatv.widget.manager.MentBuilder;
 import com.example.a123.pandatv.widget.manager.ToastManager;
 
@@ -85,33 +79,30 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     public void showHome(){
         isShowTitle(true,"");
-        MentBuilder.changeFragment(HomeFragment.class,R.id.main_fragment,false,null,true);
+        MentBuilder.changeFragment(HomeFragment.class,R.id.main_fragment,true,null,true);
         //HomeFragment homFragment = (HomeFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, HomeFragment.class).builder().getFragmentContext();
-        HomeFragment homeFragment=new HomeFragment();
-        new HomePresenter(homeFragment);
+
+
     }
     public void showPandaLive(){
         isShowTitle(false,"熊猫直播");
-        MentBuilder.changeFragment(PandaLiveFragment.class,R.id.main_fragment,false,null,true);
-        PandaLiveFragment pandaLiveFragment=new PandaLiveFragment();
-        new PandaLivePresenter(pandaLiveFragment);
+        MentBuilder.changeFragment(PandaLiveFragment.class,R.id.main_fragment,true,null,true);
+
     }
     public void showGGVideo(){
         isShowTitle(false,"滚滚视频");
-        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,false,null,true);
-        PandaRollFragment ggVideoFragment=new PandaRollFragment();
-        new PandaRollPresenter(ggVideoFragment);
+        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,true,null,false);
+
     }
     public void showPandaObserver(){
         isShowTitle(false,"熊猫播报");
-        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,false,null,true);
-        BoadCastFragment pandaObserverFragment=new BoadCastFragment();
-        new BoadCastPresenter(pandaObserverFragment);
+        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,true,null,false);
+
     }
     public void showChinaLive() {
         isShowTitle(false, "直播中国");
-        ChinaLiveFragment chinaLiveFragment = (ChinaLiveFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, ChinaLiveFragment.class).builder().getFragmentContext();
-        new ChinaLivePresenter(chinaLiveFragment);
+        MentBuilder.changeFragment(ChinaLiveFragment.class,R.id.main_fragment,true,null,true);
+
     }
     public void isShowTitle(Boolean isShow,String title){
         if (isShow){
