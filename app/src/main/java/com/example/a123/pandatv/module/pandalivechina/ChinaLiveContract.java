@@ -14,15 +14,10 @@ import java.util.List;
 public interface ChinaLiveContract {
     interface View extends BaseView<Presenter> {
         void showResult(LiveChinaTitleBean liveChinaBean);
-
         void initDatatitle(List<LiveChinaTitleBean.TablistBean> tablist);
-
         void initDataOther(List<LiveChinaTitleBean.AlllistBean> alllist);
-
         void showPopup();
-
         void setRefresh();
-
         void showErrorMassage(String msg);
     }
 
