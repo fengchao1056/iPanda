@@ -13,7 +13,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
-//        App.iHttp = new HttpFactory().create();
+//      App.iHttp = new HttpFactory().create();
         //AppManager.getAppManager().addActivity(this);
         initView();
         setListener();

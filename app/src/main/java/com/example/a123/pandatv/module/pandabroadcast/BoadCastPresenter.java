@@ -3,7 +3,7 @@ package com.example.a123.pandatv.module.pandabroadcast;
 
 import com.example.a123.pandatv.model.biz.pandabroadcast.BoadCastmodel;
 import com.example.a123.pandatv.model.biz.pandabroadcast.BoadCatModelImpl;
-import com.example.a123.pandatv.model.entity.PandaHomeBean;
+import com.example.a123.pandatv.model.entity.PandaBoadCastBean;
 import com.example.a123.pandatv.net.callback.MyCallback;
 
 public class BoadCastPresenter implements BoadCastContract.Presenter {
@@ -18,11 +18,13 @@ public class BoadCastPresenter implements BoadCastContract.Presenter {
 
     @Override
     public void start() {
-        pandahomemodel.getResult(new MyCallback<PandaHomeBean>() {
+        view.showProgress();
+        pandahomemodel.getResult(new MyCallback<PandaBoadCastBean>() {
             @Override
-            public void onSuccess(PandaHomeBean pandaHomeBean)
+            public void onSuccess(PandaBoadCastBean BoadCastBean)
             {
-                view.showResult(pandaHomeBean);
+                view.showResult(BoadCastBean);
+                view.dimissProgress();
             }
 
             @Override

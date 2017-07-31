@@ -6,8 +6,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.androidkun.adapter.ViewHolder;
@@ -41,8 +43,10 @@ public class HomeAdapter extends RecyclerView.Adapter {
             //精彩一刻
         }else  if(o instanceof  PandaHomeBean.DataBean.AreaBean) {
             return TYPE3;
+            //滚滚视频
         }else  if(o instanceof  PandaHomeBean.DataBean.WallliveBean) {
             return TYPE4;
+
         }else  if(o instanceof  PandaHomeBean.DataBean.ChinaliveBean) {
             return TYPE5;
         }
@@ -63,9 +67,16 @@ public class HomeAdapter extends RecyclerView.Adapter {
                 break;
             case TYPE3:
                  View view3=inflater.inflate(R.layout.home_splendid_main,parent,false);
-                 viewHolder =new ViewHolder(context,view3);
-
-
+                viewHolder = new ViewHolder(context, view3);
+                break;
+            case TYPE4:
+                View view4=inflater.inflate(R.layout.home_ggvideo_main,parent,false);
+                viewHolder =new ViewHolder(context,view4);
+                break;
+            case TYPE5:
+                View view5=inflater.inflate(R.layout.home_livechina_main,parent,false);
+                viewHolder =new ViewHolder(context,view5);
+                break;
         }
 
         return viewHolder;
@@ -90,6 +101,16 @@ public class HomeAdapter extends RecyclerView.Adapter {
                  PandaHomeBean.DataBean.AreaBean arrbean = (PandaHomeBean.DataBean.AreaBean) list.get(position);
                  splendAdapter.setData(arrbean);
                  break;
+             case  TYPE4:
+                 GGViewHolder ggViewHolder = new GGViewHolder(holder.itemView);
+                 PandaHomeBean.DataBean.WallliveBean wallliveBean = (PandaHomeBean.DataBean.WallliveBean) list.get(position);
+                 ggViewHolder.setDate(wallliveBean);
+                 break;
+             case  TYPE5:
+                 ChinaAdapter chinaAdapter = new ChinaAdapter(holder.itemView);
+                 PandaHomeBean.DataBean.ChinaliveBean ChinaliveBean = (PandaHomeBean.DataBean.ChinaliveBean) list.get(position);
+                 chinaAdapter.setDate(ChinaliveBean);
+                 break;
 
          }
     }
@@ -99,8 +120,54 @@ public class HomeAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return list.size();
     }
+    class GGViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
+
+        private List<PandaHomeBean.DataBean.WallliveBean.ListBeanX> wallliveBeanList;
+        private ListView home_ggVedio_listView;
+
+        public GGViewHolder(View itemView) {
+            super(itemView);
+            home_ggVedio_listView = (ListView) itemView.findViewById(R.id.home_ggVedio_listView);
+        }
+
+        public void setDate(PandaHomeBean.DataBean.WallliveBean wallliveBean) {
 
 
+            wallliveBeanList = new ArrayList<>();
+
+            for (int i = 0; i < 6; i++) {
+                wallliveBeanList.add(wallliveBean.getList().get(i));
+            }
+            HomeGGVideoAdapter splendidAdapter = new HomeGGVideoAdapter(context, wallliveBeanList);
+            home_ggVedio_listView.setAdapter(splendidAdapter);
+            home_ggVedio_listView.setOnItemClickListener(this);
+        }
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            PandaHomeBean.DataBean.WallliveBean.ListBeanX listBeanX = wallliveBeanList.get(position);
+            String title = listBeanX.getTitle();
+            String url = listBeanX.getUrl();
+        }
+    }
+
+class ChinaAdapter extends RecyclerView.ViewHolder{
+    private GridView gridView;
+    private PandaHomeBean.DataBean.ChinaliveBean chinaliveBean;
+    private ArrayList<PandaHomeBean.DataBean.ChinaliveBean.ListBeanXX> arraylist=new ArrayList<>();
+    //home_liveChina_gridView
+    public ChinaAdapter(View itemView) {
+        super(itemView);
+        gridView= (GridView) itemView.findViewById(R.id.home_liveChina_gridView);
+    }
+    public  void setDate(PandaHomeBean.DataBean.ChinaliveBean chinaliveBean){
+        this.chinaliveBean=chinaliveBean;
+        arraylist.addAll(chinaliveBean.getList());
+        HomeChinaLiveAdapter adapter=new HomeChinaLiveAdapter(context,arraylist);
+        gridView.setAdapter(adapter);
+
+    }
+}
 class SplendidAdapter extends RecyclerView.ViewHolder{
     private PandaHomeBean.DataBean.AreaBean arrbean;
     private GridView gridview;

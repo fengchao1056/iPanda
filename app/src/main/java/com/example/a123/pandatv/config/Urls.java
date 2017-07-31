@@ -6,5 +6,7 @@ public class Urls {
     private static final String BASEURL="http://www.ipanda.com/kehuduan/";
     //首页
     public static final String HOMELIVE=BASEURL+"PAGE14501749764071042/index.json";
+    //熊猫播报
+    public static final String BOBAO=BASEURL+"xmwh/index.json";
 
 }
