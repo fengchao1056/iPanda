@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorBlueHui"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/history_backBtn"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_chevron_left_white_36dp"
+            android:layout_width="@dimen/x70"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_weight="1"
+            android:text="观看历史"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80" />
+        <TextView
+            android:text="编辑"
+            android:gravity="center"
+            android:textColor="@color/colorWhite"
+            android:layout_width="@dimen/x70"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </android.support.v7.widget.RecyclerView>
+
+</LinearLayout>

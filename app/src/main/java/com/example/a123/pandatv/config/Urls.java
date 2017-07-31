@@ -7,4 +7,9 @@ public class Urls {
     //首页
     public static final String HOMELIVE=BASEURL+"PAGE14501749764071042/index.json";
 
+    //直播中国 http://www.ipanda.com/kehuduan/PAGE14501775094142282/index.json
+    public static final String LIVECHINAS=BASEURL+"PAGE14501775094142282/index.json";
+
+    //原创
+    public static final String CEHUA = BASEURL + "PAGE14501767715521482/index.json";
 }

@@ -17,6 +17,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".activity.cehua.CehuaActivity"/>
+        <activity android:name=".activity.WebActivity"/>
+        <activity android:name=".module.personcenter.activity.PersonActivity"/>
+        <activity android:name=".module.personcenter.activity.LoginActivity"/>
+        <activity android:name=".module.personcenter.activity.SeeHistoryActivity"/>
+        <activity android:name=".module.personcenter.activity.CollectActivity"/>
     </application>
 
 </manifest>

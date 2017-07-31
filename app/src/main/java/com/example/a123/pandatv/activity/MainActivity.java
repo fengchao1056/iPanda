@@ -1,5 +1,6 @@
 package com.example.a123.pandatv.activity;
 
+import android.content.Intent;
 import android.support.v4.app.FragmentManager;
 import android.view.View;
 import android.widget.ImageView;
@@ -7,6 +8,7 @@ import android.widget.RadioGroup;
 import android.widget.TextView;
 
 import com.example.a123.pandatv.R;
+import com.example.a123.pandatv.activity.cehua.CehuaActivity;
 import com.example.a123.pandatv.app.App;
 import com.example.a123.pandatv.base.BaseActivity;
 import com.example.a123.pandatv.module.pandabroadcast.BoadCastFragment;
@@ -19,6 +21,7 @@ import com.example.a123.pandatv.module.pandalivechina.ChinaLiveFragment;
 import com.example.a123.pandatv.module.pandalivechina.ChinaLivePresenter;
 import com.example.a123.pandatv.module.pandaroll.PandaRollFragment;
 import com.example.a123.pandatv.module.pandaroll.PandaRollPresenter;
+import com.example.a123.pandatv.module.personcenter.activity.PersonActivity;
 import com.example.a123.pandatv.widget.manager.MainFragmentBuild;
 import com.example.a123.pandatv.widget.manager.MentBuilder;
 import com.example.a123.pandatv.widget.manager.ToastManager;
@@ -47,7 +50,6 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         main_titlebar= (TextView) findViewById(R.id.main_titlebar);
         main_image= (ImageView) findViewById(R.id.main_image);
         main_imagehudong= (ImageView) findViewById(R.id.main_imagehudong);
-
         imageView= (ImageView) findViewById(R.id.main_imagepersonal);
     }
 
@@ -130,12 +132,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_imagepersonal:
-                //Intent intent=new Intent(MainActivity.this,PersonalActivity.class);
-                //startActivity(intent);
+                Intent intent=new Intent(MainActivity.this,PersonActivity.class);
+                startActivity(intent);
                 break;
             case R.id.main_imagehudong:
-               // Intent intent1=new Intent(MainActivity.this,CehuaActivity.class);
-                //startActivity(intent1);
+                Intent intent1=new Intent(MainActivity.this,CehuaActivity.class);
+                startActivity(intent1);
                 break;
         }
 
