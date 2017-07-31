@@ -13,7 +13,7 @@ public class ChinaLivePresenter implements ChinaLiveContract.Presenter {
     public ChinaLivePresenter(ChinaLiveContract.View view) {
         this.view = view;
         view.setPresenter(this);
-        chinalivemodel=new ChinaliveModelImpl();
+        chinalivemodel = new ChinaliveModelImpl();
     }
 
     @Override
