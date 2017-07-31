@@ -45,6 +45,7 @@ public class HomeViewPagerAdapter extends PagerAdapter {
         return list.get(position%list.size());
     }
 
+
     @Override
     public boolean isViewFromObject(View view, Object object) {
         return view==object;
