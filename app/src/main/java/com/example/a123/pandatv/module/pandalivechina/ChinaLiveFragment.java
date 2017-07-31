@@ -31,7 +31,7 @@ import java.util.Map;
 
 import butterknife.BindView;
 
-public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract.View , CompoundButton.OnCheckedChangeListener {
+public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract.View, CompoundButton.OnCheckedChangeListener {
     @BindView(R.id.liveChina_tabLayout)
     TabLayout liveChinaTabLayout;
     @BindView(R.id.liveChina_addFragment)
@@ -40,10 +40,10 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
     ViewPager liveChinaViewPager;
 
     private ChinaLiveContract.Presenter presenter;
-    private List<String> tablistBeens=new ArrayList<>();
+    private List<String> tablistBeens = new ArrayList<>();
     private List<String> allTitleName = new ArrayList<>();
-    private Map<String,String> tagUrlMap;
-    private List<LiveChinasFragment> liveChinasFragments=new ArrayList<>();
+    private Map<String, String> tagUrlMap;
+    private List<LiveChinasFragment> liveChinasFragments = new ArrayList<>();
     private ChinaLiveTitleAdapter chinaLiveAdapter;
 
     private PopupWindow popupWindow;
@@ -52,8 +52,8 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
     private CheckBox checkBox;
     private DragAdapter dragAdapter;
     private DragAdapter other_adapter;
-    private List<String> channels=new ArrayList<>();
-    private List<String> channels_other=new ArrayList<>();
+    private List<String> channels = new ArrayList<>();
+    private List<String> channels_other = new ArrayList<>();
     private ACache aCache;
 
     @Override
@@ -63,9 +63,9 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
 
     @Override
     protected void initView(View view) {
-        aCache=ACache.get(getContext());
-        liveChinasFragments=new ArrayList<>();
-        tablistBeens=new ArrayList<>();
+        aCache = ACache.get(getContext());
+        liveChinasFragments = new ArrayList<>();
+        tablistBeens = new ArrayList<>();
         new ChinaLivePresenter(this);
     }
 
@@ -102,7 +102,7 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
 
     @Override
     public void setPresenter(ChinaLiveContract.Presenter presenter) {
-        this.presenter=presenter;
+        this.presenter = presenter;
     }
 
     @Override
@@ -205,7 +205,7 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
 
         LiveChinasFragment liveChinasFragment = null;
         Bundle bundle = null;
-        for (int i=0;i<channels.size();i++){
+        for (int i = 0; i < channels.size(); i++) {
             tablistBeens.add(channels.get(i));
             liveChinasFragment = new LiveChinasFragment();
             bundle = new Bundle();
@@ -224,6 +224,7 @@ public class ChinaLiveFragment extends BaseFragment implements ChinaLiveContract
     public void showErrorMassage(String msg) {
 
     }
+
     @Override
     public void onCheckedChanged(CompoundButton buttonView, final boolean isChecked) {
 
