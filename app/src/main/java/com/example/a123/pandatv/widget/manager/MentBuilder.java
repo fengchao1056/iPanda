@@ -10,6 +10,7 @@ import com.example.a123.pandatv.base.BaseFragment;
 
 public class MentBuilder {
     private static MentBuilder builder;
+    private static FragmentManager manager;
     private static BaseFragment lasrfragment;
 
     /**
@@ -23,7 +24,7 @@ public class MentBuilder {
      * @return
      */
     public static BaseFragment changeFragment(Class<? extends BaseFragment> fragmentClass, int containId, boolean isHidden, Bundle bundle, boolean isBack) {
-        FragmentManager manager = App.context.getSupportFragmentManager();
+         manager = App.context.getSupportFragmentManager();
         //开启事物
         FragmentTransaction transaction = manager.beginTransaction();
         String simpleName = fragmentClass.getSimpleName();

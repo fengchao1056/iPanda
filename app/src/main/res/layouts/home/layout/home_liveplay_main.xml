@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/home_live"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y8"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:text="直播秀场"
+        android:textColor="@color/colorPrimary" />
+
+    <GridView
+        android:scrollbars="none"
+        android:id="@+id/home_playLive"
+        android:numColumns="3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y370"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y2"
+        android:background="@color/colorWhite">
+
+    </GridView>
+</LinearLayout>

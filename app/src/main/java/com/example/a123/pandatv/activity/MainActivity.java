@@ -50,6 +50,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
         main_titlebar= (TextView) findViewById(R.id.main_titlebar);
         main_image= (ImageView) findViewById(R.id.main_image);
         main_imagehudong= (ImageView) findViewById(R.id.main_imagehudong);
+
         imageView= (ImageView) findViewById(R.id.main_imagepersonal);
     }
 
@@ -94,26 +95,23 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     public void showPandaLive(){
         isShowTitle(false,"熊猫直播");
-        MentBuilder.changeFragment(PandaLiveFragment.class,R.id.main_fragment,false,null,true);
-        PandaLiveFragment pandaLiveFragment=new PandaLiveFragment();
-        new PandaLivePresenter(pandaLiveFragment);
+        MentBuilder.changeFragment(PandaLiveFragment.class,R.id.main_fragment,true,null,true);
+
     }
     public void showGGVideo(){
         isShowTitle(false,"滚滚视频");
-        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,false,null,true);
-        PandaRollFragment ggVideoFragment=new PandaRollFragment();
-        new PandaRollPresenter(ggVideoFragment);
+        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,true,null,false);
+
     }
     public void showPandaObserver(){
         isShowTitle(false,"熊猫播报");
-        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,false,null,true);
-        BoadCastFragment pandaObserverFragment=new BoadCastFragment();
-        new BoadCastPresenter(pandaObserverFragment);
+        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,true,null,false);
+
     }
     public void showChinaLive() {
         isShowTitle(false, "直播中国");
-        ChinaLiveFragment chinaLiveFragment = (ChinaLiveFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, ChinaLiveFragment.class).builder().getFragmentContext();
-        new ChinaLivePresenter(chinaLiveFragment);
+        MentBuilder.changeFragment(ChinaLiveFragment.class,R.id.main_fragment,true,null,true);
+
     }
     public void isShowTitle(Boolean isShow,String title){
         if (isShow){

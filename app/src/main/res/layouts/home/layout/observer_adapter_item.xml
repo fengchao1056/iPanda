@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:paddingLeft="@dimen/x10"
+    android:paddingTop="@dimen/y20"
+    android:background="@color/colorWhite"
+    android:id="@+id/pandaObserver_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y230">
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="@dimen/y200">
+        <ImageView
+            android:id="@+id/observer_list_image"
+            android:layout_width="@dimen/x350"
+            android:layout_height="@dimen/y200" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/lpanda_bottom_gra"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/y45">
+            <ImageView
+
+                android:src="@drawable/home_play_icon"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="@dimen/x10"
+                android:layout_width="@dimen/x35"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/observer_list_time"
+                android:paddingLeft="@dimen/x10"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:text="00:31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <TextView
+            android:layout_marginTop="@dimen/y10"
+            android:textScaleX="1"
+            android:layout_marginLeft="@dimen/x20"
+            android:lineSpacingExtra="@dimen/y3"
+            android:maxLines="2"
+            android:paddingTop="@dimen/y10"
+            android:textSize="@dimen/x25"
+            android:textColor="@color/colorBack"
+            android:id="@+id/observer_list_title"
+            android:layout_width="@dimen/x200"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:maxEms="20"
+            android:id="@+id/observer_list_content"
+            android:text="2017.07.13"
+            android:maxLines="2"
+            android:layout_marginLeft="@dimen/x20"
+            android:textSize="@dimen/x20"
+            android:textColor="@color/colorBack"
+            android:layout_marginTop="@dimen/y70"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+<TextView
+    android:background="@color/colorHui"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/y1" />
+
+
+</LinearLayout>

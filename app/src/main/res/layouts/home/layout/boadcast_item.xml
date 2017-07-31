@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:id="@+id/home_observer"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y80"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y8"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/x20"
+        android:text="熊猫播报"
+        android:textColor="@color/colorPrimary" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/y300"
+        android:layout_marginLeft="@dimen/x10"
+        android:layout_marginRight="@dimen/x10"
+        android:layout_marginTop="@dimen/y2"
+        android:orientation="horizontal"
+        android:background="@color/colorWhite">
+        <ImageView
+            android:id="@+id/home_pandaObserver_image"
+            android:layout_margin="20dp"
+            android:layout_width="@dimen/x200"
+            android:layout_marginLeft="@dimen/x40"
+            android:layout_gravity="center_vertical"
+            android:layout_height="@dimen/y200" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/home_observer_btn1"
+                    android:text="haha"
+                    android:textColor="@color/colorRed"
+                    android:paddingTop="@dimen/y10"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="@dimen/y10"
+                    android:paddingLeft="@dimen/x20"
+                    android:paddingRight="@dimen/x20"
+                    android:background="@drawable/home_observer_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:textColor="@color/colorBack"
+                    android:id="@+id/home_observer_title1"
+                    android:text="hehhafhhefhheh"
+                    android:paddingLeft="@dimen/x10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <TextView
+                android:background="@color/colorHui"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y2" />
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/home_observer_btn2"
+                    android:text="haha"
+                    android:textColor="@color/colorRed"
+                    android:paddingTop="@dimen/y10"
+                    android:layout_gravity="center_vertical"
+                    android:paddingBottom="@dimen/y10"
+                    android:paddingLeft="@dimen/x20"
+                    android:paddingRight="@dimen/x20"
+                    android:background="@drawable/home_observer_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/home_observer_title2"
+                    android:textColor="@color/colorBack"
+                    android:text="hehhafhhefhheh"
+                    android:paddingLeft="@dimen/x10"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
