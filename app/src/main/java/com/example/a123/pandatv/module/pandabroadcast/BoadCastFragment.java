@@ -23,6 +23,7 @@ import com.example.a123.pandatv.model.entity.PandaBoadCastBean;
 import com.example.a123.pandatv.module.pandabroadcast.adapter.OnRecyclerItemClickListener;
 import com.example.a123.pandatv.module.pandabroadcast.adapter.PandaObserverAdapter;
 import com.example.a123.pandatv.module.pandahome.adapter.HomeViewPagerAdapter;
+import com.example.a123.pandatv.widget.manager.ToastManager;
 import com.example.a123.pandatv.widget.view.ShowDioLog;
 
 import java.util.ArrayList;
@@ -83,7 +84,7 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
                 String type = listBean.getType();
                 Intent intent;
                 if (type.endsWith("1")) {
-
+                    ToastManager.show("播放");
                 } else if (type.endsWith("2")) {
                     intent = new Intent(getContext(), BoadCastMainActivity.class);
                    getContext().startActivity(intent);

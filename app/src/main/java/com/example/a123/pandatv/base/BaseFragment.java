@@ -11,6 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.a123.pandatv.app.App;
+import com.example.a123.pandatv.widget.manager.ShowDialogUtils;
+import com.example.a123.pandatv.widget.manager.ToastManager;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -33,12 +35,18 @@ public abstract class BaseFragment extends Fragment {
         initView(view);
         setListener();
         loadDate();
-      /*  ShowDialogUtils showutils = ShowDialogUtils.getInsenter().updateConnectedFlags(getContext());
-        Boolean netConnected = showutils.isNetConnected();
-        if(!netConnected) {
+        ShowDialogUtils showDialogUtils = ShowDialogUtils.getInsenter().updateConnectedFlags(getContext());
+        Boolean netConnected = showDialogUtils.isNetConnected();
+        if (!netConnected){
             ToastManager.show("似乎没有网络了");
-        }*/
+            Net();
+        }
 
+
+
+    }
+
+    public  void Net(){
 
     }
 

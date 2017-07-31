@@ -15,11 +15,13 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.example.a123.pandatv.R;
+import com.example.a123.pandatv.app.App;
 import com.example.a123.pandatv.base.BaseFragment;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
 import com.example.a123.pandatv.module.pandahome.adapter.HomeAdapter;
 import com.example.a123.pandatv.module.pandahome.adapter.HomeViewPagerAdapter;
 import com.example.a123.pandatv.module.pandahome.adapter.OnViewPagerItemListener;
+import com.example.a123.pandatv.utils.ACache;
 import com.example.a123.pandatv.widget.view.ShowDioLog;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.youth.banner.Banner;
@@ -175,7 +177,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
     public void loadWebView() {
 
     }
-    //輪播圖
+    //轮播图
     public void showViewPager(final List<PandaHomeBean.DataBean.BigImgBean> bigImgBeanList) {
         View view = null;
         CheckBox checkBox;
@@ -238,4 +240,23 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
         }
     };
 
+    @Override
+    public void Net() {
+        ACache aCache = ACache.get(App.context,"interfaceCache");
+        PandaHomeBean homeBean = (PandaHomeBean) aCache.getAsObject("PandaHomeBean");
+        if (homeBean.getData()!=null){
+            PandaHomeBean.DataBean data = homeBean.getData();
+            List<Object> list = new ArrayList<>();
+            list.add(data.getPandaeye());
+            list.add(data.getPandalive());
+            list.add(data.getArea());
+            list.add(data.getWalllive());
+            list.add(data.getChinalive());
+            HomeAdapter adapter = new HomeAdapter(getContext(), list);
+            homeRecyclerView.setAdapter(adapter);
+            List<PandaHomeBean.DataBean.BigImgBean> bigImgBeanList = homeBean.getData().getBigImg();
+            showViewPager(bigImgBeanList);
+            show.dismiss();
+        }
+    }
 }
