@@ -3,9 +3,11 @@ package com.example.a123.pandatv.net;
 
 import com.example.a123.pandatv.app.App;
 import com.example.a123.pandatv.net.callback.MyCallback;
+import com.example.a123.pandatv.utils.ACache;
 import com.google.gson.Gson;
 
 import java.io.IOException;
+import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.Map;
@@ -111,6 +113,9 @@ public class OkhttpUtils implements IHttp {
         Type[] actualTypeArguments = ((ParameterizedType) types[0]).getActualTypeArguments();
         Type type = actualTypeArguments[0];
         T t = gson.fromJson(jsonData,type);
+        String simpleName = t.getClass().getSimpleName();
+        ACache aCache=ACache.get(App.context,"interfaceCache");
+        aCache.put(simpleName, (Serializable) t);
         return t;
     }
 }

@@ -3,8 +3,8 @@
     package="com.example.a123.pandatv">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission
-        android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -24,7 +24,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.BoadCastMainActivity"></activity>
+        <activity android:name=".activity.BoadCastMainActivity" />
+        <activity android:name=".activity.BoadCastWebMainActivity"></activity>
     </application>
 
 </manifest>

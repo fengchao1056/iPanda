@@ -37,7 +37,8 @@ public abstract class BaseFragment extends Fragment {
         loadDate();
         ShowDialogUtils showDialogUtils = ShowDialogUtils.getInsenter().updateConnectedFlags(getContext());
         Boolean netConnected = showDialogUtils.isNetConnected();
-        if (!netConnected){
+        boolean networkAvailable = showDialogUtils.isNetworkAvailable(getContext());
+        if (!networkAvailable){
             ToastManager.show("似乎没有网络了");
             Net();
         }

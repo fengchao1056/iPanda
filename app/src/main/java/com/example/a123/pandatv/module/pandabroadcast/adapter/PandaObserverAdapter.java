@@ -22,6 +22,9 @@ public class PandaObserverAdapter extends BaseAdapter<PandaBoadCastBean.ListBean
         super(context, R.layout.observer_adapter_item, datas);
     }
     private OnRecyclerItemClickListener  onItemClickListener;
+
+
+
     public void setOnRecyclerItemClickListener(OnRecyclerItemClickListener  onItemClickListener){
         this.onItemClickListener=onItemClickListener;
     }

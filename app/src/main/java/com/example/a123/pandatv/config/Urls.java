@@ -8,5 +8,7 @@ public class Urls {
     public static final String HOMELIVE=BASEURL+"PAGE14501749764071042/index.json";
     //熊猫播报
     public static final String BOBAO=BASEURL+"xmwh/index.json";
+    //熊猫播报第一个item
+    public static final String BOADCASTITEM="http://api.cntv.cn/video/videolistById?p=1&serviceId=panda&n=150&vsid=VSET100311356635";
 
 }

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:id="@+id/pandaObserverFirstItem_linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_margin="10dp"
+        android:layout_width="@dimen/x300"
+        android:layout_height="@dimen/y200">
+        <ImageView
+            android:id="@+id/pandaObserverFirstItem_image"
+            android:layout_width="@dimen/x300"
+            android:layout_height="@dimen/y200" />
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/lpanda_bottom_gra"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y45">
+            <ImageView
+
+                android:src="@drawable/home_play_icon"
+                android:layout_gravity="center_vertical"
+                android:paddingLeft="@dimen/x10"
+                android:layout_width="@dimen/x35"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/observerfirstItem_time"
+                android:paddingLeft="@dimen/x10"
+                android:layout_gravity="center_vertical"
+                android:textSize="15sp"
+                android:textColor="@color/colorWhite"
+                android:text="00:31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
+    <TextView
+        android:layout_margin="10dp"
+        android:text="hahahha"
+        android:maxLines="2"
+        android:id="@+id/observerfirstitem_content"
+        android:layout_width="@dimen/x300"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

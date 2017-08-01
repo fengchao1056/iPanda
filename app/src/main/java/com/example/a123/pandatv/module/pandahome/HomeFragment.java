@@ -165,7 +165,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
             }
         });*/
-        show.dismiss();
+       show.dismiss();
     }
 
     @Override
@@ -242,9 +242,10 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
 
     @Override
     public void Net() {
+
         ACache aCache = ACache.get(App.context,"interfaceCache");
-        PandaHomeBean homeBean = (PandaHomeBean) aCache.getAsObject("PandaHomeBean");
-        if (homeBean.getData()!=null){
+        if (aCache.getAsObject("PandaHomeBean")!=null){
+            PandaHomeBean homeBean = (PandaHomeBean) aCache.getAsObject("PandaHomeBean");
             PandaHomeBean.DataBean data = homeBean.getData();
             List<Object> list = new ArrayList<>();
             list.add(data.getPandaeye());

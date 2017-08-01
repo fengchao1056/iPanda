@@ -6,9 +6,124 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context="com.example.a123.pandatv.activity.BoadCastMainActivity">
+        <LinearLayout
+            android:background="@color/colorBlue"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y90">
+                <ImageView
+                    android:src="@drawable/umeng_socialize_back_icon"
+                    android:id="@+id/ggvideo_backBtn"
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/title_cast"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:layout_gravity="center_vertical"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+                <ImageView
+                    android:layout_gravity="center_vertical"
+                    android:padding="10dp"
+                    android:layout_width="@dimen/x120"
+                    android:layout_height="match_parent" />
+
+        </LinearLayout>
         <ImageView
             android:scaleType="fitXY"
             android:src="@drawable/_no_img"
             android:layout_width="match_parent"
             android:layout_height="@dimen/y350" />
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y170">
+
+                        <TextView
+                            android:layout_margin="7dp"
+                            android:textSize="18sp"
+                            android:text="首播时间:"
+                             android:textStyle="bold"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content" />
+
+                <TextView
+                    android:background="@color/colorHui"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y15" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+                <TextView
+                    android:text="栏目介绍"
+                    android:layout_margin="8dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:id="@+id/checkbox_cast"
+                    android:background="@drawable/livechina_jianjie"
+                    android:button="@null"
+                    android:layout_centerInParent="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+        </LinearLayout>
+        <TextView
+            android:layout_margin="8dp"
+            android:id="@+id/tv_cast"
+            android:visibility="gone"
+            android:text="少时诵诗书所所所
+            所的对方答复地方地方地方地方大幅
+            度发地方地方地方地方地方地方地方地方地方的"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:background="@color/colorHui"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y15" />
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y80">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="8dp"
+                    android:text="高清完整"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+        </LinearLayout>
+        <com.androidkun.PullToRefreshRecyclerView
+            android:id="@+id/recycler_cast"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </com.androidkun.PullToRefreshRecyclerView>
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:background="@color/colorBlue"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/y85">
+                <CheckBox
+                    android:button="@null"
+                    android:id="@+id/web_shoucang_btn"
+                    android:layout_marginRight="@dimen/x20"
+                    android:background="@drawable/pandaobserver_shoucang_btnbk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <CheckBox
+                    android:button="@null"
+                    android:id="@+id/web_fenxiang_btn"
+                    android:layout_marginLeft="@dimen/x20"
+                    android:background="@drawable/pandaobserver_fenxiang_btnbk"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+
+        </LinearLayout>
 </LinearLayout>
