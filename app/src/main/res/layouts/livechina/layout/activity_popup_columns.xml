@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="10dp">
+
+        <ImageView
+            android:id="@+id/fanhui"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:padding="5dp"
+            android:src="@drawable/com_facebook_tooltip_black_xout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="5dp">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="切换栏目"
+                android:textColor="@color/colorWhite"
+                android:textSize="20dp" />
+
+            <CheckBox
+                android:id="@+id/licechina_add_button"
+                android:layout_width="70dp"
+                android:layout_height="30dp"
+                android:button="@null"
+                android:gravity="center"
+                android:layout_marginRight="10dp"
+                android:background="@drawable/shape_white_corner"
+                android:text="编辑" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.example.a123.pandatv.view.DragGridView
+                android:id="@+id/gridView_channel"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </com.example.a123.pandatv.view.DragGridView>
+            <!--<ImageView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" -->
+            <!--/>-->
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="点击添加更多栏目"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/colorWhite"
+            android:textSize="20dp" />
+
+        <com.example.a123.pandatv.view.DragGridView
+            android:id="@+id/gridView_channel_other"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </com.example.a123.pandatv.view.DragGridView>
+
+    </LinearLayout>
+
+</ScrollView>

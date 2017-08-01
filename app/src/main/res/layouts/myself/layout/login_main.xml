@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:background="@color/colorBlueHui"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:background="@color/colorPrimary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/login_backImg"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_chevron_left_white_36dp"
+            android:layout_width="@dimen/x70"
+            android:layout_height="match_parent" />
+        <TextView
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:text="登录"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        <TextView
+            android:text="注册"
+            android:textColor="@color/colorWhite"
+            android:textSize="18sp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:layout_gravity="center_vertical"
+            android:layout_width="@dimen/x70"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:paddingLeft="15dp"
+        android:text="使用社交账号登录到熊猫频道"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp" />
+
+    <RadioGroup
+        android:id="@+id/login_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <RadioButton
+            android:id="@+id/login_radiobutton_wenxin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/login_weixin"
+            android:gravity="center"
+            android:text="微信"
+            />
+
+        <RadioButton
+            android:id="@+id/login_radiobutton_qq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/login_qq"
+            android:gravity="center"
+            android:text="QQ"
+            />
+
+        <RadioButton
+            android:id="@+id/login_radiobutton_sina"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawableTop="@drawable/login_sina"
+            android:gravity="center"
+            android:text="新浪"
+            />
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="15dp"
+        android:text="CNTV通行证"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp" />
+
+    <EditText
+        android:id="@+id/login_edit_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/colorWhite"
+        android:hint="账号：请输入邮箱或手机号"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:textSize="13dp">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/login_edit_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:background="@color/colorWhite"
+        android:hint="请输入密码"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:textSize="13dp">
+
+    </EditText>
+    <TextView
+        android:id="@+id/livechina_wangjimimaa"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="忘记密码？"
+        android:gravity="end"
+        android:paddingRight="15dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="15dp" />
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_margin="15dp"
+        android:layout_height="wrap_content"
+        android:text="登录"
+        android:textColor="@color/colorWhite"
+        android:background="@drawable/button_bg_blue"
+        />
+
+</LinearLayout>
