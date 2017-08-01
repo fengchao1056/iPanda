@@ -216,15 +216,15 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
     @Override
     public void Net() {
         ACache aCache = ACache.get(getContext(),"interfaceCache");
-        if (aCache.getAsObject("PandaHomeBean")!=null){
-            PandaBoadCastBean homeBean1 = (PandaBoadCastBean) aCache.getAsObject("homeBean");
-            if (homeBean1 != null) {
-                setListView(homeBean1.getList());
-                SetViewpager(homeBean1.getBigImg());
-                show.dismiss();
-            }
+        if (aCache.getAsObject("PandaBoadCastBean") != null) {
+            PandaBoadCastBean homeBean1 = (PandaBoadCastBean) aCache.getAsObject("PandaBoadCastBean");
+
+            setListView(homeBean1.getList());
+            SetViewpager(homeBean1.getBigImg());
 
         }
+        show.dismiss();
+
     }
 
     Handler handler=new Handler(){

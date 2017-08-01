@@ -4,6 +4,7 @@ package com.example.a123.pandatv.module.pandahome;
 import com.example.a123.pandatv.model.biz.pandahome.PandaHomeModelImpl;
 import com.example.a123.pandatv.model.biz.pandahome.Pandahomemodel;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
+import com.example.a123.pandatv.model.entity.UpDateLoading;
 import com.example.a123.pandatv.net.callback.MyCallback;
 
 public class HomePresenter implements HomeContract.Presenter {
@@ -18,6 +19,7 @@ public class HomePresenter implements HomeContract.Presenter {
 
     @Override
     public void start() {
+
         pandahomemodel.getHomeResult(new MyCallback<PandaHomeBean>() {
             @Override
             public void onSuccess(PandaHomeBean pandaHomeBean) {
@@ -29,6 +31,22 @@ public class HomePresenter implements HomeContract.Presenter {
                    view.showMessage(errorMsg);
             }
         });
+        pandahomemodel.getVerSion(new MyCallback<UpDateLoading>() {
+            @Override
+            public void onSuccess(UpDateLoading upDateLoading) {
+                view.getVersion(upDateLoading);
+            }
 
+            @Override
+            public void onError(int errorCode, String errorMsg) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void loadMore(int pageSize, int pageContent) {
+        new PandaHomeModelImpl().loadMore(pageSize, pageContent);
     }
 }
