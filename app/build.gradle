@@ -28,7 +28,6 @@ android {
                             'src/main/res/layouts/gg',
                             'src/main/res/layouts/boadcast',
                             'src/main/res/layouts/pandalive',
-                            'src/main/res/layouts/myself',
 
                     ]
         }

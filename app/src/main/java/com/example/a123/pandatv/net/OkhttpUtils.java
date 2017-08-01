@@ -39,35 +39,8 @@ public class OkhttpUtils implements IHttp {
 
 
     @Override
-    public <T> void get(String url, final MyCallback<T> callback) {
-        Request request = new Request.Builder().url(url).build();
-        client.newCall(request).enqueue(new Callback() {
-            @Override
-            public void onFailure(Call call, final IOException e) {
-                App.context.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //执行在主线程
-                        callback.onError(404,e.getMessage().toString());
-                    }
-                });
+    public <T> void get(String url, MyCallback<T> callback) {
 
-            }
-
-            @Override
-            public void onResponse(Call call, Response response) throws IOException {
-                final String jsonData = response.body().string();
-                //执行在子线程中
-                App.context.runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        //执行在主线程
-                        callback.onSuccess(getGeneric(jsonData,callback));
-                    }
-                });
-
-            }
-        });
     }
 
     @Override

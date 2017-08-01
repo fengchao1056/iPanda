@@ -47,7 +47,6 @@ import java.io.RandomAccessFile;
 import java.io.Serializable;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -224,7 +223,7 @@ public class ACache {
 	 *            保存的key
 	 * @param value
 	 */
-	public void put(String key, List<String> value) {
+	public void put(String key, JSONArray value) {
 		put(key, value.toString());
 	}
 

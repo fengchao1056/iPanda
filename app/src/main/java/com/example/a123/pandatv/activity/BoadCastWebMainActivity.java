@@ -67,7 +67,6 @@ public class BoadCastWebMainActivity extends BaseActivity {
         fenxiangBtn.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-               // share();
             }
         });
 
