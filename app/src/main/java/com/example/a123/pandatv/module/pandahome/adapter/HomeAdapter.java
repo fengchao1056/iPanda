@@ -21,6 +21,7 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
 import com.example.a123.pandatv.widget.manager.ToastManager;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter {
@@ -37,7 +38,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
     @Override
     public int getItemViewType(int position) {
         Object o = list.get(position);
-        //熊猫播报
+            //熊猫播报
         if(o instanceof PandaHomeBean.DataBean.PandaeyeBean) {
               return TYPE1;
             //熊猫直播
@@ -49,7 +50,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
             //滚滚视频
         }else  if(o instanceof  PandaHomeBean.DataBean.WallliveBean) {
             return TYPE4;
-
+            //直播中国
         }else  if(o instanceof  PandaHomeBean.DataBean.ChinaliveBean) {
             return TYPE5;
         }
@@ -61,10 +62,12 @@ public class HomeAdapter extends RecyclerView.Adapter {
         RecyclerView.ViewHolder viewHolder = null;
         switch (viewType){
             case TYPE1:
+                //熊猫播报
                 View view1 = inflater.inflate(R.layout.boadcast_item, parent, false);
                 viewHolder = new ViewHolder(context, view1);
                 break;
             case TYPE2:
+                //熊猫直播
                 View view2=inflater.inflate(R.layout.home_liveplay_main,parent,false);
                 viewHolder = new ViewHolder(context, view2);
                 break;
@@ -74,10 +77,12 @@ public class HomeAdapter extends RecyclerView.Adapter {
                 viewHolder = new ViewHolder(context, view3);
                 break;
             case TYPE4:
+                //滚滚视频
                 View view4=inflater.inflate(R.layout.home_ggvideo_main,parent,false);
                 viewHolder =new ViewHolder(context,view4);
                 break;
             case TYPE5:
+                //直播中国
                 View view5=inflater.inflate(R.layout.home_livechina_main,parent,false);
                 viewHolder =new ViewHolder(context,view5);
                 break;
@@ -91,11 +96,13 @@ public class HomeAdapter extends RecyclerView.Adapter {
         int itemViewType = getItemViewType(position);
          switch (itemViewType){
              case TYPE1:
+                 //熊猫播报
                 BoadCastadapter adapter=new BoadCastadapter(holder.itemView);
                  PandaHomeBean.DataBean.PandaeyeBean pandaeyeBean = (PandaHomeBean.DataBean.PandaeyeBean) list.get(position);
                  adapter.setDate(pandaeyeBean);
                  break;
              case TYPE2:
+                 //熊猫直播
                  LiveplayAdapter liveplayAdapter=new LiveplayAdapter(holder.itemView);
                  PandaHomeBean.DataBean.PandaliveBean pandalive = (PandaHomeBean.DataBean.PandaliveBean) list.get(position);
                   liveplayAdapter.setData(pandalive);
@@ -107,11 +114,13 @@ public class HomeAdapter extends RecyclerView.Adapter {
                  splendAdapter.setData(arrbean);
                  break;
              case  TYPE4:
+                 //滚滚视频
                  GGViewHolder ggViewHolder = new GGViewHolder(holder.itemView);
                  PandaHomeBean.DataBean.WallliveBean wallliveBean = (PandaHomeBean.DataBean.WallliveBean) list.get(position);
                  ggViewHolder.setDate(wallliveBean);
                  break;
              case  TYPE5:
+                 //直播中国
                  ChinaAdapter chinaAdapter = new ChinaAdapter(holder.itemView);
                  PandaHomeBean.DataBean.ChinaliveBean ChinaliveBean = (PandaHomeBean.DataBean.ChinaliveBean) list.get(position);
                  chinaAdapter.setDate(ChinaliveBean);
@@ -125,6 +134,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
     public int getItemCount() {
         return list.size();
     }
+    //滚滚视频
     class GGViewHolder extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
 
         private List<PandaHomeBean.DataBean.WallliveBean.ListBeanX> wallliveBeanList;
@@ -136,10 +146,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
         }
 
         public void setDate(PandaHomeBean.DataBean.WallliveBean wallliveBean) {
-
-
             wallliveBeanList = new ArrayList<>();
-
             for (int i = 0; i < 5; i++) {
                 wallliveBeanList.add(wallliveBean.getList().get(i));
             }
@@ -151,14 +158,16 @@ public class HomeAdapter extends RecyclerView.Adapter {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             PandaHomeBean.DataBean.WallliveBean.ListBeanX listBeanX = wallliveBeanList.get(position);
+            Intent intent=new Intent(context, BoadCastMainActivity.class);
             String title = listBeanX.getTitle();
             String url = listBeanX.getUrl();
             ToastManager.show(title);
+            context.startActivity(intent);
 
         }
     }
-
-class ChinaAdapter extends RecyclerView.ViewHolder{
+    //直播中国
+class ChinaAdapter extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
     private GridView gridView;
     private PandaHomeBean.DataBean.ChinaliveBean chinaliveBean;
     private ArrayList<PandaHomeBean.DataBean.ChinaliveBean.ListBeanXX> arraylist=new ArrayList<>();
@@ -172,17 +181,24 @@ class ChinaAdapter extends RecyclerView.ViewHolder{
         arraylist.addAll(chinaliveBean.getList());
         HomeChinaLiveAdapter adapter=new HomeChinaLiveAdapter(context,arraylist);
         gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(this);
 
     }
-}
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            Intent intent=new Intent(context, BoadCastMainActivity.class);
+            String title = arraylist.get(position).getTitle();
+            String vid = arraylist.get(position).getVid();
+            ToastManager.show(title);
+            context.startActivity(intent);
+        }
+    }
     //精彩一刻
-class SplendidAdapter extends RecyclerView.ViewHolder{
+class SplendidAdapter extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
     private PandaHomeBean.DataBean.AreaBean arrbean;
     private GridView gridview;
     private ArrayList<PandaHomeBean.DataBean.AreaBean.ListscrollBean> arraylist=new ArrayList<>();
-
-
-
     public SplendidAdapter(View itemView) {
         super(itemView);
         gridview= (GridView) itemView.findViewById(R.id.home_splendid_gridView);
@@ -190,23 +206,33 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
     public void setData(PandaHomeBean.DataBean.AreaBean arrbean){
                 this.arrbean=arrbean;
         List<PandaHomeBean.DataBean.AreaBean.ListscrollBean> listscroll = arrbean.getListscroll();
-
         for (int i = 0; i < 4; i++) {
             arraylist.add(listscroll.get(i));
         }
         HomeSplendidAdapter adapter=new HomeSplendidAdapter(context,arraylist);
         gridview.setAdapter(adapter);
+        gridview.setOnItemClickListener(this);
 
     }
 
-}
-
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            String title = arraylist.get(position).getTitle();
+            String image = arraylist.get(position).getImage();
+            String url = arraylist.get(position).getUrl();
+            Date date=new Date();
+            StringBuffer buffer=new StringBuffer();
+            String pid = arraylist.get(position).getPid();
+            ToastManager.show(title);
+            Intent intent=new Intent(context, BoadCastMainActivity.class);
+            context.startActivity(intent);
+        }
+    }
+    //熊猫直播
  class LiveplayAdapter extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
      private PandaHomeBean.DataBean.PandaliveBean pandaliveBean;
      private GridView gridView;
      private ArrayList<PandaHomeBean.DataBean.PandaliveBean.ListBean> arrayList = new ArrayList<>();
-
-
      public LiveplayAdapter(View itemView) {
          super(itemView);
          gridView = (GridView) itemView.findViewById(R.id.home_playLive);
@@ -219,6 +245,7 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
          arrayList.addAll(list);
          HomePandaLiveAdapter adapter = new HomePandaLiveAdapter(context, arrayList);
          gridView.setAdapter(adapter);
+         gridView.setOnItemClickListener(this);
 
      }
 
@@ -232,8 +259,8 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
          context.startActivity(intent);
      }
  }
-
- class BoadCastadapter extends RecyclerView.ViewHolder  {
+    //熊猫播报
+ class BoadCastadapter extends RecyclerView.ViewHolder implements View.OnClickListener {
     private ImageView imageView;
     private TextView btn1, btn2, title1, title2;
     private PandaHomeBean.DataBean.PandaeyeBean pandaeye;
@@ -256,8 +283,25 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
         btn2.setText(pandaeye.getItems().get(1).getBrief());
         title1.setText(pandaeye.getItems().get(0).getTitle());
         title2.setText(pandaeye.getItems().get(1).getTitle());
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
 
     }
 
- }
+        @Override
+        public void onClick(View v) {
+             switch (v.getId()){
+                 case R.id.home_observer_btn1:
+                     String title1 = pandaeye.getItems().get(0).getTitle();
+                     ToastManager.show(title1);
+                     String brief = pandaeye.getItems().get(0).getBrief();
+
+                     break;
+                 case R.id.home_observer_btn2:
+                     String title2 = pandaeye.getItems().get(1).getTitle();
+                     ToastManager.show(title2);
+                     break;
+             }
+        }
+    }
 }

@@ -33,6 +33,7 @@ import com.example.a123.pandatv.module.pandahome.adapter.HomeAdapter;
 import com.example.a123.pandatv.module.pandahome.adapter.HomeViewPagerAdapter;
 import com.example.a123.pandatv.module.pandahome.adapter.OnViewPagerItemListener;
 import com.example.a123.pandatv.utils.ACache;
+import com.example.a123.pandatv.widget.manager.ToastManager;
 import com.example.a123.pandatv.widget.view.ShowDioLog;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.youth.banner.Banner;
@@ -365,6 +366,7 @@ public class HomeFragment extends BaseFragment implements HomeContract.View {
                 String title = bigImgBeanList.get(posetion).getTitle();
                 String image = bigImgBeanList.get(posetion).getImage();
                 String id = bigImgBeanList.get(posetion).getId();
+                ToastManager.show(title);
 
             }
         });

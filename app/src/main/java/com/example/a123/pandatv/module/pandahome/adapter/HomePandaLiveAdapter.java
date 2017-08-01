@@ -70,6 +70,5 @@ public class HomePandaLiveAdapter extends BaseAdapter {
             this.title.setText(title);
         }
 
-
     }
 }
