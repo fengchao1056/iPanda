@@ -8,7 +8,7 @@ public class DaoManger {
     private  static DaoMaster.DevOpenHelper helper;
     private static  DaoManger manger=null;
     public DaoManger(Context mcontext){
-        helper=  new DaoMaster.DevOpenHelper(mcontext,"name");
+        helper=  new DaoMaster.DevOpenHelper(mcontext,"name1");
     }
     public  static   DaoManger getInstance(Context c){
         if(manger==null) {

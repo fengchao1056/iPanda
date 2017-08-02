@@ -30,7 +30,6 @@ public class ShowDioLog  {
      loadDialog.setCanceledOnTouchOutside(false);
      loadDialog.show();
 
-
      return this;
 
  }

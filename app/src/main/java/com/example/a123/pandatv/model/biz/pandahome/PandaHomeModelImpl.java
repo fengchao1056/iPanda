@@ -6,6 +6,8 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
 import com.example.a123.pandatv.model.entity.UpDateLoading;
 import com.example.a123.pandatv.net.callback.MyCallback;
 
+import java.io.File;
+
 public class PandaHomeModelImpl implements Pandahomemodel {
 
 
@@ -22,5 +24,10 @@ public class PandaHomeModelImpl implements Pandahomemodel {
     @Override
     public void getVerSion(MyCallback<UpDateLoading> myNetCallBack) {
         iHttp.get(Urls.UPDATE,null,myNetCallBack);
+    }
+
+    @Override
+    public void getup(String url, MyCallback<File> myCallback) {
+        iHttp.downLoad(url,myCallback);
     }
 }

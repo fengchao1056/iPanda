@@ -7,6 +7,8 @@ import com.example.a123.pandatv.model.entity.PandaHomeBean;
 import com.example.a123.pandatv.model.entity.UpDateLoading;
 import com.example.a123.pandatv.net.callback.MyCallback;
 
+import java.io.File;
+
 public class HomePresenter implements HomeContract.Presenter {
     private HomeContract.View view;
     private Pandahomemodel pandahomemodel;
@@ -20,6 +22,8 @@ public class HomePresenter implements HomeContract.Presenter {
     @Override
     public void start() {
 
+        view.loadMore();
+        view.loadWebView();
         pandahomemodel.getHomeResult(new MyCallback<PandaHomeBean>() {
             @Override
             public void onSuccess(PandaHomeBean pandaHomeBean) {
@@ -48,5 +52,20 @@ public class HomePresenter implements HomeContract.Presenter {
     @Override
     public void loadMore(int pageSize, int pageContent) {
         new PandaHomeModelImpl().loadMore(pageSize, pageContent);
+    }
+
+    @Override
+    public void uplode(String url) {
+         pandahomemodel.getup(url, new MyCallback<File>() {
+             @Override
+             public void onSuccess(File file) {
+                    view.setupapk(file);
+             }
+
+             @Override
+             public void onError(int errorCode, String errorMsg) {
+
+             }
+         });
     }
 }

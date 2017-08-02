@@ -4,6 +4,7 @@ package com.example.a123.pandatv.module.pandahome.adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,10 +19,11 @@ import com.bumptech.glide.Glide;
 import com.example.a123.pandatv.R;
 import com.example.a123.pandatv.activity.BoadCastMainActivity;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
+import com.example.a123.pandatv.widget.manager.Dbmanager;
 import com.example.a123.pandatv.widget.manager.ToastManager;
+import com.example.a123.pandatv.widget.manager.green.Collect;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class HomeAdapter extends RecyclerView.Adapter {
@@ -161,6 +163,14 @@ public class HomeAdapter extends RecyclerView.Adapter {
             Intent intent=new Intent(context, BoadCastMainActivity.class);
             String title = listBeanX.getTitle();
             String url = listBeanX.getUrl();
+            String image = listBeanX.getImage();
+            Dbmanager.getInstance().insert(title,"",null, url,image,false);
+            List<Collect> list = Dbmanager.getInstance().list();
+            String s = list.toString();
+            ArrayList<Collect> a=new ArrayList();
+            a.addAll(list);
+            Log.e("TAG","图片地址"+a.get(0).getImage()+"title"+a.get(0).getTitle()+a.get(0).getPlaytime());
+            Log.e("TAG",a.size()+"ss"+list.size());
             ToastManager.show(title);
             context.startActivity(intent);
 
@@ -219,10 +229,14 @@ class SplendidAdapter extends RecyclerView.ViewHolder implements AdapterView.OnI
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
             String title = arraylist.get(position).getTitle();
             String image = arraylist.get(position).getImage();
-            String url = arraylist.get(position).getUrl();
-            Date date=new Date();
-            StringBuffer buffer=new StringBuffer();
-            String pid = arraylist.get(position).getPid();
+            String    url = arraylist.get(position).getUrl();
+            Dbmanager.getInstance().insert(title,"",null, url,image,false);
+            List<Collect> list = Dbmanager.getInstance().list();
+            String s = list.toString();
+            ArrayList<Collect> a=new ArrayList();
+            a.addAll(list);
+            Log.e("TAG","图片地址"+a.get(0).getImage()+"title"+a.get(0).getTitle());
+             Log.e("TAG",a.size()+"ss"+list.size());
             ToastManager.show(title);
             Intent intent=new Intent(context, BoadCastMainActivity.class);
             context.startActivity(intent);
