@@ -37,7 +37,8 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     private ImageView main_image;
     private ImageView main_imagehudong;
     private ImageView imageView;
-    private int viewID= R.id.main_fragment;
+    private int viewID = R.id.main_fragment;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
@@ -46,12 +47,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     @Override
     protected void initView() {
         App.context = this;
-        main_radiogroup= (RadioGroup) findViewById(R.id.main_radiogroup);
-        main_titlebar= (TextView) findViewById(R.id.main_titlebar);
-        main_image= (ImageView) findViewById(R.id.main_image);
-        main_imagehudong= (ImageView) findViewById(R.id.main_imagehudong);
+        main_radiogroup = (RadioGroup) findViewById(R.id.main_radiogroup);
+        main_titlebar = (TextView) findViewById(R.id.main_titlebar);
+        main_image = (ImageView) findViewById(R.id.main_image);
+        main_imagehudong = (ImageView) findViewById(R.id.main_imagehudong);
 
-        imageView= (ImageView) findViewById(R.id.main_imagepersonal);
+        imageView = (ImageView) findViewById(R.id.main_imagepersonal);
     }
 
     @Override
@@ -68,7 +69,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
 
     @Override
     public void onCheckedChanged(RadioGroup group, int checkedId) {
-        switch (checkedId){
+        switch (checkedId) {
             case R.id.main_home:
                 showHome();
                 break;
@@ -86,38 +87,44 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
                 break;
         }
     }
-    public void showHome(){
-        isShowTitle(true,"");
-        MentBuilder.changeFragment(HomeFragment.class,R.id.main_fragment,true,null,true);
+
+    public void showHome() {
+        isShowTitle(true, "");
+        MentBuilder.changeFragment(HomeFragment.class, R.id.main_fragment, true, null, true);
         //HomeFragment homFragment = (HomeFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, HomeFragment.class).builder().getFragmentContext();
 
     }
-    public void showPandaLive(){
-        isShowTitle(false,"熊猫直播");
-        MentBuilder.changeFragment(PandaLiveFragment.class,R.id.main_fragment,true,null,true);
+
+    public void showPandaLive() {
+        isShowTitle(false, "熊猫直播");
+        MentBuilder.changeFragment(PandaLiveFragment.class, R.id.main_fragment, true, null, true);
 
     }
-    public void showGGVideo(){
-        isShowTitle(false,"滚滚视频");
-        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,true,null,true);
+
+    public void showGGVideo() {
+        isShowTitle(false, "滚滚视频");
+        MentBuilder.changeFragment(PandaRollFragment.class, R.id.main_fragment, true, null, true);
 
     }
-    public void showPandaObserver(){
-        isShowTitle(false,"熊猫播报");
-        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,true,null,true);
+
+    public void showPandaObserver() {
+        isShowTitle(false, "熊猫播报");
+        MentBuilder.changeFragment(BoadCastFragment.class, R.id.main_fragment, true, null, true);
 
     }
+
     public void showChinaLive() {
         isShowTitle(false, "直播中国");
-        MentBuilder.changeFragment(ChinaLiveFragment.class,R.id.main_fragment,true,null,true);
+        MentBuilder.changeFragment(ChinaLiveFragment.class, R.id.main_fragment, true, null, true);
 
     }
-    public void isShowTitle(Boolean isShow,String title){
-        if (isShow){
+
+    public void isShowTitle(Boolean isShow, String title) {
+        if (isShow) {
             main_image.setVisibility(View.VISIBLE);
             main_titlebar.setVisibility(View.INVISIBLE);
             main_imagehudong.setVisibility(View.VISIBLE);
-        }else {
+        } else {
             main_image.setVisibility(View.GONE);
             main_titlebar.setVisibility(View.VISIBLE);
             main_imagehudong.setVisibility(View.GONE);
@@ -129,27 +136,28 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_imagepersonal:
-                Intent intent=new Intent(MainActivity.this,PersenActivity.class);
+                Intent intent = new Intent(MainActivity.this, PersenActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_imagehudong:
-                Intent intent1=new Intent(MainActivity.this,CehuaActivity.class);
+                Intent intent1 = new Intent(MainActivity.this, CehuaActivity.class);
                 startActivity(intent1);
                 break;
         }
 
     }
+
     @Override
     public void onBackPressed() {
         FragmentManager manager = getSupportFragmentManager();
         FragmentManager.BackStackEntry entry = manager.getBackStackEntryAt(getSupportFragmentManager().getBackStackEntryCount() - 1);
         String simpleName = entry.getName();
         if (simpleName.equals("BoadCastFragment") || simpleName.equals("PandaLiveFragment") || simpleName.equals("HomeFragment")
-                || simpleName.equals("PandaRollFragment")|| simpleName.equals("ChinaLiveFragment")) {
-            if(System.currentTimeMillis() - lastTime < 2000){
+                || simpleName.equals("PandaRollFragment") || simpleName.equals("ChinaLiveFragment")) {
+            if (System.currentTimeMillis() - lastTime < 2000) {
                 System.exit(0);
-               // lastTime=0;
-            }else {
+                // lastTime=0;
+            } else {
                 ToastManager.show("再按一次退出应用");
                 lastTime = System.currentTimeMillis();
             }
