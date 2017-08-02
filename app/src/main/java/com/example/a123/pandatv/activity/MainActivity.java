@@ -12,17 +12,12 @@ import com.example.a123.pandatv.activity.cehua.CehuaActivity;
 import com.example.a123.pandatv.app.App;
 import com.example.a123.pandatv.base.BaseActivity;
 import com.example.a123.pandatv.module.pandabroadcast.BoadCastFragment;
-import com.example.a123.pandatv.module.pandabroadcast.BoadCastPresenter;
 import com.example.a123.pandatv.module.pandahome.HomeFragment;
 import com.example.a123.pandatv.module.pandahome.HomePresenter;
 import com.example.a123.pandatv.module.pandalive.PandaLiveFragment;
-import com.example.a123.pandatv.module.pandalive.PandaLivePresenter;
 import com.example.a123.pandatv.module.pandalivechina.ChinaLiveFragment;
-import com.example.a123.pandatv.module.pandalivechina.ChinaLivePresenter;
 import com.example.a123.pandatv.module.pandaroll.PandaRollFragment;
-import com.example.a123.pandatv.module.pandaroll.PandaRollPresenter;
-import com.example.a123.pandatv.module.personcenter.activity.PersonActivity;
-import com.example.a123.pandatv.widget.manager.MainFragmentBuild;
+import com.example.a123.pandatv.module.personcenter.activity.PersenActivity;
 import com.example.a123.pandatv.widget.manager.MentBuilder;
 import com.example.a123.pandatv.widget.manager.ToastManager;
 
@@ -88,10 +83,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     public void showHome(){
         isShowTitle(true,"");
-        MentBuilder.changeFragment(HomeFragment.class,R.id.main_fragment,false,null,true);
-        //HomeFragment homFragment = (HomeFragment) MainFragmentBuild.getInsenter().setFragmentView(viewID, HomeFragment.class).builder().getFragmentContext();
-        HomeFragment homeFragment=new HomeFragment();
-        new HomePresenter(homeFragment);
+        MentBuilder.changeFragment(HomeFragment.class,R.id.main_fragment,true,null,true);
     }
     public void showPandaLive(){
         isShowTitle(false,"熊猫直播");
@@ -100,12 +92,12 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     }
     public void showGGVideo(){
         isShowTitle(false,"滚滚视频");
-        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,true,null,false);
+        MentBuilder.changeFragment(PandaRollFragment.class,R.id.main_fragment,true,null,true);
 
     }
     public void showPandaObserver(){
         isShowTitle(false,"熊猫播报");
-        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,true,null,false);
+        MentBuilder.changeFragment(BoadCastFragment.class,R.id.main_fragment,true,null,true);
 
     }
     public void showChinaLive() {
@@ -130,7 +122,7 @@ public class MainActivity extends BaseActivity implements RadioGroup.OnCheckedCh
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.main_imagepersonal:
-                Intent intent=new Intent(MainActivity.this,PersonActivity.class);
+                Intent intent=new Intent(MainActivity.this,PersenActivity.class);
                 startActivity(intent);
                 break;
             case R.id.main_imagehudong:

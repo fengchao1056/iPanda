@@ -7,13 +7,15 @@ import android.widget.LinearLayout;
 
 import com.example.a123.pandatv.R;
 import com.example.a123.pandatv.base.BaseActivity;
+import com.example.a123.pandatv.model.entity.LoginEntity;
+import com.example.a123.pandatv.utils.ACache;
 
 /**
  * Created by Administrator on 2017/7/31.
  */
 
-public class PersonActivity extends BaseActivity implements View.OnClickListener{
-    private LinearLayout loginLayout,seeHistoryLayout,collectLayout;
+public class PersenActivity extends BaseActivity implements View.OnClickListener{
+    private LinearLayout loginLayout,seeHistoryLayout,collectLayout,settingLayout;
     private ImageView backImg;
     @Override
     protected int getLayoutId() {
@@ -22,10 +24,17 @@ public class PersonActivity extends BaseActivity implements View.OnClickListener
 
     @Override
     protected void initView() {
+        ACache aCache= ACache.get(this);
+        LoginEntity loginEntity= (LoginEntity) aCache.getAsObject("loginentity");
+        if (loginEntity!=null){
+            String usrid = loginEntity.getUsrid();
+            loginEntity.getUser_seq_id();
+        }
         loginLayout= (LinearLayout) findViewById(R.id.login_layout);
         backImg= (ImageView) findViewById(R.id.person_backBtn);
         seeHistoryLayout= (LinearLayout) findViewById(R.id.person_seeHistory);
         collectLayout= (LinearLayout) findViewById(R.id.collect_layout);
+        settingLayout= (LinearLayout) findViewById(R.id.person_setting);
     }
 
     @Override
@@ -34,6 +43,7 @@ public class PersonActivity extends BaseActivity implements View.OnClickListener
         backImg.setOnClickListener(this);
         seeHistoryLayout.setOnClickListener(this);
         collectLayout.setOnClickListener(this);
+        settingLayout.setOnClickListener(this);
 
     }
 
@@ -60,6 +70,10 @@ public class PersonActivity extends BaseActivity implements View.OnClickListener
             case R.id.collect_layout:
                 Intent collectHistory=new Intent(this,CollectActivity.class);
                 startActivity(collectHistory);
+                break;
+            case R.id.person_setting:
+                Intent setting=new Intent(this,SettingActivity.class);
+                startActivity(setting);
                 break;
         }
     }

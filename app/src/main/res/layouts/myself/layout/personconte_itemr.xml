@@ -34,7 +34,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:src="@drawable/person_sign"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -65,7 +65,7 @@
 
         <ImageView
             android:src="@drawable/personal_history_img"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -95,7 +95,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:src="@drawable/personal_shoucang_img"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView
@@ -117,6 +117,7 @@
 
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/person_setting"
         android:layout_marginRight="@dimen/x20"
         android:layout_marginLeft="@dimen/x20"
         android:background="@color/colorWhite"
@@ -125,7 +126,7 @@
         android:layout_height="wrap_content">
         <ImageView
             android:src="@drawable/personal_set_img"
-            android:layout_margin="5dp"
+            android:layout_margin="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
         <TextView

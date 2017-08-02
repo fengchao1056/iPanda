@@ -3,6 +3,7 @@ package com.example.a123.pandatv.module.personcenter.adapter;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.view.ViewGroup;
 
 import com.example.a123.pandatv.base.BaseFragment;
 import com.example.a123.pandatv.module.pandalivechina.chilefragment.LiveChinasFragment;
@@ -20,6 +21,11 @@ public class CollectTitleAdapter extends FragmentStatePagerAdapter {
         super(fm);
         this.liveChinasFragments=liveChinasFragments;
         this.titles=titles;
+    }
+
+    @Override
+    public void destroyItem(ViewGroup container, int position, Object object) {
+
     }
 
     @Override

@@ -49,6 +49,7 @@
         android:hint="请输入图片验证码"
         android:background="@drawable/shape_white_corner"/>
     <ImageView
+        android:id="@+id/image_code"
         android:layout_width="90dp"
         android:layout_height="30dp"
         android:layout_gravity="center_vertical"
