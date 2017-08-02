@@ -98,6 +98,14 @@
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <meta-data
+            android:name="UMENG_MESSAGE_SECRET"
+            android:value="73f507f17ffdef131a081fe13232c463">
+        </meta-data>
+        <meta-data
+            android:name="UMENG_CHANNEL"
+            android:value="Channel ID" >
+        </meta-data>
     </application>
 
 

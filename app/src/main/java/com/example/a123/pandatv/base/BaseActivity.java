@@ -7,6 +7,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.umeng.message.PushAgent;
 import com.umeng.socialize.UMAuthListener;
 import com.umeng.socialize.UMShareAPI;
 import com.umeng.socialize.bean.SHARE_MEDIA;
@@ -26,6 +27,8 @@ public abstract class BaseActivity extends AppCompatActivity {
         initView();
         setListener();
         setIntent();
+        PushAgent.getInstance(this).onAppStart();
+
 
     }
     @Override

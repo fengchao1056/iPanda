@@ -3,8 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PandaTv.iml" filepath="$PROJECT_DIR$/PandaTv.iml" />
+      <module fileurl="file://$PROJECT_DIR$/PushSDK/PushSDK.iml" filepath="$PROJECT_DIR$/PushSDK/PushSDK.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/iPanda.iml" filepath="$PROJECT_DIR$/iPanda.iml" />
+      <module fileurl="file://$PROJECT_DIR$/umengsdk/umengsdk.iml" filepath="$PROJECT_DIR$/umengsdk/umengsdk.iml" />
       <module fileurl="file://$PROJECT_DIR$/umengsdk/umengsdk.iml" filepath="$PROJECT_DIR$/umengsdk/umengsdk.iml" />
     </modules>
   </component>
