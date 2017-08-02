@@ -25,7 +25,7 @@ public class PandaBoadCastBean implements Serializable {
         this.list = list;
     }
 
-    public static class BigImgBean {
+    public static class BigImgBean implements Serializable{
         /**
          * id : ARTILBLSMq3qlVgygrUMJEG2170523
          * image : http://p1.img.cctvpic.com/photoAlbum/page/performance/img/2017/5/23/1495533604076_403.jpg
@@ -121,7 +121,7 @@ public class PandaBoadCastBean implements Serializable {
         }
     }
 
-    public static class ListBean {
+    public static class ListBean implements Serializable{
         /**
          * brief : 本期节目主要内容：    因教书先生教授了《诗经》中“关关雎鸠，在河之洲；窈窕淑女，君子好逑。”之词
          * id : VSET100311356635

@@ -28,7 +28,7 @@ public class LiveChinaTitleBean implements Serializable{
         this.alllist = alllist;
     }
 
-    public static class TablistBean {
+    public static class TablistBean implements Serializable{
         /**
          * title : 八达岭
          * url : http://www.ipanda.com/kehuduan/liebiao/badaling/index.json
@@ -74,7 +74,7 @@ public class LiveChinaTitleBean implements Serializable{
         }
     }
 
-    public static class AlllistBean {
+    public static class AlllistBean implements Serializable{
         /**
          * title : 凤凰古城
          * url : http://www.ipanda.com/kehuduan/liebiao/fenghuanggucheng/index.json
