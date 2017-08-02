@@ -47,7 +47,7 @@ public class NetUtils {
     public static void checkNetwork(final Activity activity) {
         if (!NetUtils.isNetworkAvalible(activity)) {
             TextView msg = new TextView(activity);
-            msg.setText("当前没有可以使用的网络，请设置网络！");
+            msg.setText("当前没有可以使用的网络,请设置网络！");
             new AlertDialog.Builder(activity).setIcon(R.drawable.ic_launcher).setTitle("网络状态提示").setView(msg).setPositiveButton("确定", new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int whichButton) {

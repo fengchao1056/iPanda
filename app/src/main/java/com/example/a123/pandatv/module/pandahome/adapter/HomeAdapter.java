@@ -2,6 +2,7 @@ package com.example.a123.pandatv.module.pandahome.adapter;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,9 @@ import android.widget.TextView;
 import com.androidkun.adapter.ViewHolder;
 import com.bumptech.glide.Glide;
 import com.example.a123.pandatv.R;
+import com.example.a123.pandatv.activity.BoadCastMainActivity;
 import com.example.a123.pandatv.model.entity.PandaHomeBean;
+import com.example.a123.pandatv.widget.manager.ToastManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -66,6 +69,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
                 viewHolder = new ViewHolder(context, view2);
                 break;
             case TYPE3:
+                //精彩一刻
                  View view3=inflater.inflate(R.layout.home_splendid_main,parent,false);
                 viewHolder = new ViewHolder(context, view3);
                 break;
@@ -97,6 +101,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
                   liveplayAdapter.setData(pandalive);
                  break;
              case  TYPE3:
+                 //精彩一刻
                  SplendidAdapter splendAdapter=new SplendidAdapter(holder.itemView);
                  PandaHomeBean.DataBean.AreaBean arrbean = (PandaHomeBean.DataBean.AreaBean) list.get(position);
                  splendAdapter.setData(arrbean);
@@ -135,7 +140,7 @@ public class HomeAdapter extends RecyclerView.Adapter {
 
             wallliveBeanList = new ArrayList<>();
 
-            for (int i = 0; i < 6; i++) {
+            for (int i = 0; i < 5; i++) {
                 wallliveBeanList.add(wallliveBean.getList().get(i));
             }
             HomeGGVideoAdapter splendidAdapter = new HomeGGVideoAdapter(context, wallliveBeanList);
@@ -148,6 +153,8 @@ public class HomeAdapter extends RecyclerView.Adapter {
             PandaHomeBean.DataBean.WallliveBean.ListBeanX listBeanX = wallliveBeanList.get(position);
             String title = listBeanX.getTitle();
             String url = listBeanX.getUrl();
+            ToastManager.show(title);
+
         }
     }
 
@@ -168,6 +175,7 @@ class ChinaAdapter extends RecyclerView.ViewHolder{
 
     }
 }
+    //精彩一刻
 class SplendidAdapter extends RecyclerView.ViewHolder{
     private PandaHomeBean.DataBean.AreaBean arrbean;
     private GridView gridview;
@@ -190,9 +198,10 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
         gridview.setAdapter(adapter);
 
     }
+
 }
 
- class LiveplayAdapter extends RecyclerView.ViewHolder {
+ class LiveplayAdapter extends RecyclerView.ViewHolder implements AdapterView.OnItemClickListener {
      private PandaHomeBean.DataBean.PandaliveBean pandaliveBean;
      private GridView gridView;
      private ArrayList<PandaHomeBean.DataBean.PandaliveBean.ListBean> arrayList = new ArrayList<>();
@@ -211,6 +220,16 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
          HomePandaLiveAdapter adapter = new HomePandaLiveAdapter(context, arrayList);
          gridView.setAdapter(adapter);
 
+     }
+
+     @Override
+     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+         String vid = arrayList.get(position).getVid();
+         String id1 = arrayList.get(position).getId();
+         String title = arrayList.get(position).getTitle();
+         ToastManager.show(title);
+         Intent intent=new Intent(context, BoadCastMainActivity.class);
+         context.startActivity(intent);
      }
  }
 
@@ -235,7 +254,6 @@ class SplendidAdapter extends RecyclerView.ViewHolder{
         Glide.with(context).load(pandaeyelogo).into(imageView);
         btn1.setText(pandaeye.getItems().get(0).getBrief());
         btn2.setText(pandaeye.getItems().get(1).getBrief());
-
         title1.setText(pandaeye.getItems().get(0).getTitle());
         title2.setText(pandaeye.getItems().get(1).getTitle());
 

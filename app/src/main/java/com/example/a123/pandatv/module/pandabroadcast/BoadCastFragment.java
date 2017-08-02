@@ -23,6 +23,9 @@ import com.example.a123.pandatv.model.entity.PandaBoadCastBean;
 import com.example.a123.pandatv.module.pandabroadcast.adapter.OnRecyclerItemClickListener;
 import com.example.a123.pandatv.module.pandabroadcast.adapter.PandaObserverAdapter;
 import com.example.a123.pandatv.module.pandahome.adapter.HomeViewPagerAdapter;
+import com.example.a123.pandatv.module.pandahome.adapter.OnViewPagerItemListener;
+import com.example.a123.pandatv.utils.ACache;
+import com.example.a123.pandatv.widget.manager.ToastManager;
 import com.example.a123.pandatv.widget.view.ShowDioLog;
 
 import java.util.ArrayList;
@@ -60,9 +63,12 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
         layout = (LinearLayout) inflate.findViewById(R.id.home_viewpager_linearLayout);
         viewpager = (ViewPager) inflate.findViewById(R.id.home_viewpager);
         MCostRecycer.addHeaderView(inflate);
-        MCostRecycer.displayLastRefreshTime(true);
+        MCostRecycer.setLoadingMoreEnabled(false);
+        MCostRecycer.setPullRefreshEnabled(false);
+        MCostRecycer.displayLastRefreshTime(false);
         pandaObserverAdapter = new PandaObserverAdapter(getContext(), beanList);
         MCostRecycer.setAdapter(pandaObserverAdapter);
+
 
     }
 
@@ -83,8 +89,12 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
                 String type = listBean.getType();
                 Intent intent;
                 if (type.endsWith("1")) {
-
+                    ToastManager.show("播放");
                 } else if (type.endsWith("2")) {
+                    String title = listBean.getTitle();
+                    String url = listBean.getUrl();
+                    String image = listBean.getImage();
+
                     intent = new Intent(getContext(), BoadCastMainActivity.class);
                    getContext().startActivity(intent);
                 }
@@ -144,6 +154,30 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
          checkBoxes.get(num%checkBoxes.size()).setChecked(true);
         viewpager.setCurrentItem(checkBoxes.size());
         handler.sendEmptyMessageDelayed(222, 2000);
+        homeViewPagerAdapter.setOnViewPagerItemListener(new OnViewPagerItemListener() {
+            @Override
+            public void onItemListener(View view, int posetion) {
+                String type = biglist.get(posetion).getType();
+                String pid = biglist.get(posetion).getPid();
+                String image = biglist.get(posetion).getImage();
+                String title = biglist.get(posetion).getTitle();
+                String vid = biglist.get(posetion).getVid();
+                String id = biglist.get(posetion).getId();
+                String url = biglist.get(posetion).getUrl();
+                Boolean isSave=false;
+
+
+                if (type.endsWith("5")) {
+                    Intent intent = new Intent(getContext(), BoadCastMainActivity
+                            .class);
+                    intent.putExtra("isSave",isSave);
+                    intent.putExtra("vid",vid);
+                    intent.putExtra("url", url);
+                    startActivityForResult(intent,2000);
+                }
+
+            }
+        });
 
 
     }
@@ -175,6 +209,23 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
         beanList.addAll(pandaHome.getList());
 
     }
+    public void setListView(List<PandaBoadCastBean.ListBean> listBeanList) {
+        beanList.addAll(listBeanList);
+        pandaObserverAdapter.notifyDataSetChanged();
+    }
+    @Override
+    public void Net() {
+        ACache aCache = ACache.get(getContext(),"interfaceCache");
+        if (aCache.getAsObject("PandaBoadCastBean") != null) {
+            PandaBoadCastBean homeBean1 = (PandaBoadCastBean) aCache.getAsObject("PandaBoadCastBean");
+
+            setListView(homeBean1.getList());
+            SetViewpager(homeBean1.getBigImg());
+
+        }
+        show.dismiss();
+
+    }
 
     Handler handler=new Handler(){
         @Override
@@ -200,6 +251,5 @@ public class BoadCastFragment extends BaseFragment implements BoadCastContract.V
     public void playVideo() {
 
     }
-
 
 }

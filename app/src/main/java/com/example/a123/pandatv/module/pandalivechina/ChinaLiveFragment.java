@@ -17,7 +17,6 @@ import android.widget.Toast;
 import com.example.a123.pandatv.R;
 import com.example.a123.pandatv.base.BaseFragment;
 import com.example.a123.pandatv.model.entity.LiveChinaTitleBean;
-import com.example.a123.pandatv.model.entity.LiveChinasBean;
 import com.example.a123.pandatv.module.pandalivechina.adapter.ChinaLiveTitleAdapter;
 import com.example.a123.pandatv.module.pandalivechina.chilefragment.LiveChinasFragment;
 import com.example.a123.pandatv.utils.ACache;
